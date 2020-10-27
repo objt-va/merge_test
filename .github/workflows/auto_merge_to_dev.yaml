@@ -15,6 +15,6 @@ jobs:
         with:
           target_branch: 'dev'
           source_branch: ${{ github.ref }}
-          commit_message_template: "[Automated] Merge branch '${{env.GITHUB_REF_NAME}}' into 'dev'"
+          commit_message_template: "merge"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
