@@ -3,13 +3,18 @@ on:
     branches:
       - "feature/*"
 jobs:
-  merge-branch:
+  nightly-merge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: everlytic/branch-merge@1.1.0
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set env variables
+        uses: FranzDiebold/github-env-vars-action@v1.2.1
+      - name: Merge branch
+        uses: objt-va/action-branch-merge@master
         with:
-          github_token: ${{ github.token }}
-          source_ref: ${{ github.ref }}
           target_branch: 'dev'
-          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+          source_branch: ${{ github.ref }}
+          commit_message_template: "[Automated] Merge branch '${{env.GITHUB_REF_NAME}}' into {target_branch}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
