@@ -16,5 +16,6 @@ jobs:
           target_branch: 'dev'
           source_branch: ${{ github.ref }}
           commit_message_template: "merge"
+          allow_forks: "true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
