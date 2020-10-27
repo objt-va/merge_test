@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Set env variables
         uses: FranzDiebold/github-env-vars-action@v1.2.1
       - name: Merge branch
-        uses: objt-va/action-branch-merge@master
+        uses: objt-va/gh-action-nightly-merge@master
         with:
           target_branch: 'dev'
           source_branch: ${{ github.ref }}
