@@ -13,7 +13,7 @@ jobs:
       - name: Set env variables
         uses: FranzDiebold/github-env-vars-action@v1.2.1
       - name: Merge branch
-        uses: objt-va/auto_branch_merge@master
+        uses: objt-va/auto_branch_merge@main
         with:
           target_branch: 'dev'
           source_branch: ${{ github.ref }}
