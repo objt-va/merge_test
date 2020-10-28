@@ -14,7 +14,7 @@ jobs:
         uses: objt-va/auto_branch_merge@main
         with:
           target_branch: 'dev'
-          source_branch: ${{ github.ref }}
+          source_branch: ${{ env.GITHUB_REF_NAME }}
           commit_message: "merge"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
