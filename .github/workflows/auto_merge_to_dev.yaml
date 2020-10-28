@@ -7,14 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set env variables
         uses: FranzDiebold/github-env-vars-action@v1.2.1
       - name: Merge branch
-        uses: objt-va/action-branch-merge@master
+        uses: objt-va/auto_branch_merge@main
         with:
           target_branch: 'dev'
           source_branch: ${{ github.ref }}
-          commit_message_template: "merge"
+          commit_message: "merge"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
