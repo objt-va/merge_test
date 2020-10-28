@@ -8,14 +8,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set env variables
         uses: FranzDiebold/github-env-vars-action@v1.2.1
       - name: Merge branch
-        uses: objt-va/gh-action-nightly-merge@master
+        uses: objt-va/auto_branch_merge@master
         with:
           target_branch: 'dev'
           source_branch: ${{ github.ref }}
-          commit_message_template: "merge"
-          allow_forks: "true"
+          commit_message: "merge"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
