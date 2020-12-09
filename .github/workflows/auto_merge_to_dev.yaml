@@ -3,14 +3,13 @@ on:
     branches:
       - "feature/*"
 jobs:
-  nightly-merge:
+  auto-dev-merge:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set env variables
         uses: FranzDiebold/github-env-vars-action@v1.2.1
-#      - uses: fregante/setup-git-user@v1
       - name: Merge branch
         uses: objt-va/auto_branch_merge@main
         with:
