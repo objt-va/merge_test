@@ -11,10 +11,10 @@ jobs:
       - name: Set env variables
         uses: FranzDiebold/github-env-vars-action@v1.2.1
       - name: Merge branch
-        uses: objt-va/auto_branch_merge@main
+        uses: Germanedge/github-auto-branch-merge@main
         with:
           target_branch: 'dev'
           source_branch: ${{ env.GITHUB_REF_NAME }}
-          commit_message: "[Automated] Merge branch '${{env.GITHUB_REF_NAME}}' into dev"  
+          commit_message: "[Automated] Merge branch '${{env.GITHUB_REF_NAME}}' into dev"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
